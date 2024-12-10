@@ -14,9 +14,22 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public MainMenu menu;
+
     Vector3 velocity;
     bool isGrounded;
     void Update()
+    {
+        Movement();
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            menu.paused = !menu.paused;
+            menu.PauseGame();
+        }
+    }
+
+    void Movement()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -25,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        if (Input.GetKey("left shift") && isGrounded)
+        if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
         {
             speed = 10;
         }

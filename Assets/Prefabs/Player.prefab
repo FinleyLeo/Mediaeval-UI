@@ -135,6 +135,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  menu: {fileID: 0}
 --- !u!143 &4965975794412210060
 CharacterController:
   m_ObjectHideFlags: 0
@@ -369,5 +370,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51763bafdae3792488a76927e0169d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 500
   playerBody: {fileID: 8818226089213997120}

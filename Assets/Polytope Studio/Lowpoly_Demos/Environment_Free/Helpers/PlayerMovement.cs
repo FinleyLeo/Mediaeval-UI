@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+
+    void Start()
+    {
+        LevelManager.instance.SceneStart("LevelMusic");
+    }
+
     void Update()
     {
         Movement();

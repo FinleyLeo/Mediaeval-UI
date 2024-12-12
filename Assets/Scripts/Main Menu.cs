@@ -25,31 +25,33 @@ public class MainMenu : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "Main Menu")
             {
                 mainAnim.SetTrigger("Down");
-            }
 
-            if (PlayerPrefs.HasKey("sfxVol"))
-            {
-                SFX.value = PlayerPrefs.GetFloat("sfxVol");
-            }
+                if (PlayerPrefs.HasKey("sfxVol"))
+                {
+                    SFX.value = PlayerPrefs.GetFloat("sfxVol");
+                }
 
-            else
-            {
-                SFX.value = 1;
-            }
+                else
+                {
+                    SFX.value = 1;
+                }
 
-            if (PlayerPrefs.HasKey("musicVol"))
-            {
-                music.value = PlayerPrefs.GetFloat("musicVol");
-            }
+                if (PlayerPrefs.HasKey("musicVol"))
+                {
+                    music.value = PlayerPrefs.GetFloat("musicVol");
+                }
 
-            else
-            {
-                music.value = 1;
-            }
+                else
+                {
+                    music.value = 1;
+                }
 
-            if (PlayerPrefs.HasKey("difficulty"))
-            {
-                difficulty.value = PlayerPrefs.GetInt("difficulty");
+                if (PlayerPrefs.HasKey("difficulty"))
+                {
+                    difficulty.value = PlayerPrefs.GetInt("difficulty");
+                }
+
+                LevelManager.instance.SceneStart("MenuMusic");
             }
         }
     }
@@ -179,5 +181,14 @@ public class MainMenu : MonoBehaviour
     public void AnimationSound(string sound)
     {
         AudioManager.instance.PlaySFX(sound);
+    }
+
+    public void ChangeSFXVol(float vol)
+    {
+        AudioManager.instance.SFXVolume(vol);
+    }
+    public void ChangeMusicVol(float vol)
+    {
+        AudioManager.instance.MusicVolume(vol);
     }
 }
